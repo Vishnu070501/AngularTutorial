@@ -1,0 +1,44 @@
+<!--
+  1.now to pass a message from the parent component to the child component we use property binding in the child tag inside the parent html file
+  2.note:parent component is the component where the other tag has been called
+  3.
+-->
+<h1>Component to component messaging</h1>
+<app-two-way-binding [pMessage]="parentMessage" (cMessage)="childMessageVar=$event"></app-two-way-binding>
+<!--
+  pMessage allows us to imoprt data from the ts file to the html hence it is one way binging
+  cMessage is from the child component an event wherever called willgive the message
+-->
+
+
+<!--
+  steps to get message from the child component(cc) to the pareent component(pc):
+  1.create an event emmiter in the cc.
+  2.call the emit function pass the message as the parameter
+  3.when the emit function is evoked the message will be emmited and stored inside the cmessage as an event.
+  4.now in the pc if we wanna use the value use event binding to call the message to parent component(in this example we have used a variable from the ts file to event binding(all code in line 6)).
+-->
+<br><br><br><br><br>
+<div>
+
+  <h4>
+    child message here:{{childMessageVar}}
+  </h4>
+
+</div>
+<br><br><br><br><br>
+<h4>structural directives</h4>
+<app-structuraldirectives></app-structuraldirectives>
+
+<br><br><br><br><br>
+<div>
+  <h4>custommade pipe</h4>
+  <app-aspipeassgmt></app-aspipeassgmt>
+
+
+</div>
+
+<br><br><br><br><br>
+<h4>attribute directives</h4>
+<app-attributedirect></app-attributedirect>
+

@@ -1,0 +1,52 @@
+<p>register works!</p>
+<p>leaving this page will prompt u if u wanna leave as it may contain important details that u may have filled and u may notanna refill it all again</p>
+
+<div>
+
+    <form #registerForm="ngForm" (submit)="submitForm()"><!--this ngForm(one of the brahmastra that says this is a tdf) what is does is it stores all the details asked inside the form, inside the alias name registerForm-->
+      {{registerForm.value|json}}
+        <div class="form-group">
+        <label for="">Username</label>
+        <input type="text" name="username" #uname = ngModel [(ngModel)]="username" required minlength="5"/><br><!--this uname(another brahmastra(ngModel) that tells this is a tdf) alias name allows us to use all the validation classes(like valid invalid) present inside the forms module(look at line 12 and 13) and the errors that the user has asked to check[required,minlength in this case]-->
+        <div *ngIf="uname.errors && (uname.dirty || uname.touched)">
+          <div *ngIf="uname.errors['required']">Pls enter the username </div>
+          <div [hidden]="!uname.errors['minlength']">Please enter 5 characters</div><!--uname.errors class contains all the properties where the alias name becomes invalid or valid ,
+          the hidden is a property which only gets activated when the given conditions -->
+        </div>
+       valid:{{uname.valid}}<br>
+      invalid:{{uname.invalid}}<br>
+        pristine:{{uname.pristine}}<br><!--the difference between pristine and untouched is that pristine will remain true if u just unblur blur a  box without changing the value that is already present in the ui,but untouched will go false -->
+        dirty:{{uname.dirty}}<br>
+        touched:{{uname.touched}}<br>
+        untouched:{{uname.untouched}}<br>
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" name="password" [(ngModel)]="password" required />
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" name="email" [(ngModel)]="email"  required/>
+        </div>
+        <button [disabled]="!registerForm.form.valid" >submit</button>
+    </form>
+
+</div>
+<!--  angular forms (creation of forms steps):
+1.creating
+2.binding of data
+3.validation
+4.visual feedback
+5.error messagems
+6.form submission
+
+2 types of forms:
+1. template driven
+    1.1 control in html of the component
+    1.2 for complex forms
+    1.3 cannot do unit testing
+2. model/reactive driven
+    2.1 control in the ts file
+    2.2 for simple forms
+    2.3 can do unit testing
+-->

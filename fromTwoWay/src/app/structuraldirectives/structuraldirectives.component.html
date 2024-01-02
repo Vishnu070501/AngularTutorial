@@ -1,0 +1,63 @@
+<table>
+  <thead>
+    <th>EmpId</th>
+    <th>Name</th>
+    <th *ngIf="status">Place</th>
+  </thead>
+  <tbody *ngFor="let emp of Employee"><!--structural directives are used inside the html which allow us to modify the structure template of the html in different styles like looping and applying conditions to different tags -->
+    <tr>
+        <td>{{emp.empId}}</td>
+        <td>{{emp.empName|uppercase}}</td><!--pipes-->
+        <td *ngIf="status">{{emp.place}}</td> <!--structural directive ngif-->
+    </tr>
+  </tbody>
+
+</table>
+<button (click)="changeStatus()">{{status?'Hide':'Show'}}Place</button>
+
+<br><br><br><br><br>
+<h4>pipes in angular</h4>
+<!--Angular Pipes transform the output. You can think of them as makeup rooms where they beautify the data into a more desirable format. -->
+<!--different pipes inside the angular-->
+{{9350200605.147598|number:'2.0-4'}}<!--mentioning the precision-->
+{{2300|currency:'INR'}}
+<br/>
+{{2300|currency:'INR':false}}
+<br>
+{{today|date:'dd-MM-YYYY'}}
+<br>
+{{today|date:'dd-MMMM-YYYY'}}
+<br>
+{{today|date:'dd-MM-YY'}}
+<br>
+{{today|date:'dd-MM-YYYY HH:mm:ss'}}<!--HH 24 hr format hh for 12 hr format-->
+<br>
+{{Employee|json}}<!--displays json items properly-->
+<br>
+{{"Today is a lovely day"|slice:3:-7}}
+                          <!--strt index:end index -->
+
+<br><br><br><br><br>
+<h5>a mix of structural and attribute directives used below :</h5>
+<select [(ngModel)]="role">
+  <option value="red">student</option>
+  <option value="black">teacher</option>
+  <option value="green">peon</option>
+  <option value="yellow">principle</option>
+  <option value="select Option">pls select the option</option>
+</select>
+
+<ul [ngSwitch]="role" [ngStyle]="{'color':role}"><!--ngstyle is a attribute directive which can change the attribute here color -->
+  <li *ngSwitchCase="'red'">red is for student</li>
+  <li *ngSwitchCase="'black'">black is for teacher</li>
+  <li *ngSwitchCase="'green'">green is for peon</li>   <!--compares the role variable to different values before giving the -->
+  <li *ngSwitchCase="'yellow'">yellow is for principle</li><!--correct list item-->
+  <li *ngSwitchDefault="">please select your role</li>
+</ul>
+
+<!--
+  types of directives in angular :
+  1.component directives:in the ts file where we mention the template urls and styles urls we are directing the compiler towards the css and the html files
+  2.structural directives:the one which can modify the template or the html tags(ngIf,ngFor,ngSwitch)
+  3.attribute directives: allows us to modify the functionality of the attributes
+-->

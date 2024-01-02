@@ -1,0 +1,8 @@
+<ul *ngFor="let item of products">
+
+  <img src="{{item.thumbnail}}" >
+  <span><a routerLink="{{item.title}}">{{item.title}}</a> </span>
+
+</ul>
+
+<router-outlet></router-outlet><!--this is a children link router outlet maybe used to display more details about the product at the bottom of the page-->

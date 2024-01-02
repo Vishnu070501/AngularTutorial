@@ -1,0 +1,42 @@
+<h1>Hello</h1>
+<!--Whatever we do here is bootstrapped to the index.html page and this makes that page that we see there -->
+<h1>{{interpolation}}</h1>
+<h1>{{IPFunct()}}</h1>
+<h1>{{2*2}} this does the work as it works inside js and gives us the result of 2*2</h1>
+<!--increment ,dec , assignment typeof operators don't work here in interpolation-->
+<app-login></app-login><!--this is basically how a component works components can be considered as parts of webpages for the insta page the header can be considered a component now the beuty of component is that the component tags can be reused -->
+<app-login></app-login>
+<app-login></app-login>
+<app-in-style></app-in-style>
+<app-in-temp></app-in-temp>
+<app-in-style-temp></app-in-style-temp>
+<button (click)="getname('Vishnu Kurup')">click me</button>
+
+<br/><br/>
+<input type="text"  placeholder="keydown" #box1 (keydown)="eventAlert(box1.value)"/>
+<br/><br/>
+<input type="text"  placeholder="keyup" #box2 (keyup)="eventAlert(box2.value)"/>
+<br/><br/>
+<input type="text"  placeholder="mouseover" #box3 (mouseover)="eventAlert('mouseoverthis')"/>
+<br/><br/>
+<input type="text"  placeholder="blur" #box4 (blur)="eventAlert('blurred')"/>
+<!--
+  the order of navigation
+  1.firstPro
+  2.fromService
+  3.fromTwoWay
+  4.fromModules
+  5.routingAngular
+-->
+<!--
+  lifecycle of a parent component(app.component):
+    1.constructor():to initialize(cannot enter buisiness logic)
+    2.onChanges():when smth from pc passed to cc
+    3.onInit():whenever we need to initialize(can enter buisinesss logic)
+    4.doCheck():called whenever a change is detected
+    5.onDestroy():whenever component is destroyed
+  lifecycle of a child component:
+    1.afterContentInit():initializing child components
+    2.afterContentChecked():detects changes
+    3.afterViewChecked():detects change in the template
+-->

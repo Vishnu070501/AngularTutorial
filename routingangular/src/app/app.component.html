@@ -1,0 +1,14 @@
+<!-- in the router link attribute mention the name that has been given to all particular components in the router module file mentioning the link we will see the whole output inside the router outlet tag note any router outlet tag inside the component inside the router outlet is called children  -->
+<nav>
+  <a routerLink="home"> home </a>
+  <a routerLink="login"> login </a>
+  <a routerLink="product"> product </a>
+  <a routerLink="contactus"> contactUs </a>
+  <a routerLink="register"> register </a>
+  <a routerLink="MDF">Register MDF</a>
+
+
+</nav>
+<router-outlet></router-outlet><!--this tag tells the angular that where the output of the routing should come-->
+
+<app-lifecycle [parentBooks]="books"></app-lifecycle>

@@ -1,0 +1,15 @@
+<!--to use 2 way binding just import forms module inside the app module and use the ngModel and to both property binding and event binding both at the same time -->
+<input type="text" [(ngModel)] = "sampleVar"><p>value on the end of this sentence will change in sync with the input box {{sampleVar}}</p>
+<button (click)="sendMessage()">send the response to parent Component:</button><!--(sending message from cc to pc)-->
+<h6>
+Message from the parent component is :
+  {{pMessage}}<!--this variable(interpolated) contains the message from the app component(parent because the child tag has been called there (parent componet to child component data sharing).
+  so the steps to share a value from parent component(pc) to child component(cc):
+  1.make a variable in the cc that can be called as a attribute in the cc tag in the pc.
+  2.in the cc tag assign the value of the pc to the attribute variable thru property binding .
+  3.use the variable anywhere in the cc (here we have interpolated the variable here).
+-->
+</h6>
+
+
+{{"Vishnu Kurup"|gender:'M'}} <h3>^ Custom-made pipe to insert the designation before the name </h3>
